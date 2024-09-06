@@ -15,10 +15,16 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Numans:wght@400;700&display=swap">
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
 
+    <!-- Integración de tu CSS personalizado -->
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Numans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
+
     <title>@yield('titulo_pagina')</title>
   </head>
   <body>
-    
+
     @yield('contenido')
 
     <!-- Bootstrap JS -->
@@ -29,3 +35,4 @@
 
   </body>
 </html>
+

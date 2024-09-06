@@ -3,7 +3,7 @@
 @section('titulo_pagina', 'Registro de usuario')
 
 @section('contenido')
-<div class="container d-flex justify-content-center align-items-center min-vh-100">
+<div class="container register-container d-flex justify-content-center align-items-center min-vh-100">
     <div class="row justify-content-center w-100">
         <div class="col-lg-6 col-md-8 col-sm-10">
             <div class="card shadow-lg border-light rounded">
@@ -28,8 +28,8 @@
                             <input type="password" name="password" id="password" class="form-control" placeholder="Ingrese su contraseña">
                         </div>
 
-                        <button type="submit" class="btn btn-primary w-100 py-2 mt-3">Registrarse</button>
-                        <a href="{{ route('login') }}" class="btn btn-info w-100 py-2 mt-2 text-white">Iniciar Sesión</a>
+                        <button type="submit" class="btn custom-button w-100 py-2 mt-3">Registrarse</button>
+                        <a href="{{ route('login') }}" class="btn custom-button w-100 py-2 mt-2 text-white">Iniciar Sesión</a>
                     </form>
                 </div>
             </div>
@@ -37,6 +37,4 @@
     </div>
 </div>
 @endsection
-
-
 

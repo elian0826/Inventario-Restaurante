@@ -1,0 +1,173 @@
+/* public/css/custom.css */
+
+
+/* Fondo de la pantalla de login y registro con imagen */
+.login-container {
+    background-image: url('../images/loginModerno.jpg'); /* Ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+/* Fondo de la pantalla de inicio */
+.register-container {
+    background-image: url('../images/registrar.jpg'); /* Ruta de tu imagen */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+}
+
+
+
+/* Estilos para los botones personalizados */
+.custom-button {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+    cursor: pointer;
+    position: relative;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+}
+
+.custom-button::after,
+.custom-button::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+}
+
+.custom-button::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+}
+
+@keyframes move-bg7234 {
+    0% {
+        background-position: 31% 0%;
+    }
+
+    50% {
+        background-position: 70% 100%;
+    }
+
+    100% {
+        background-position: 31% 0%;
+    }
+}
+
+.custom-button::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+}
+
+.custom-button:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+}
+
+.custom-button:where(:hover, :focus) {
+    color: #fff;
+}
+
+/* CSS para la barra superior */
+.bg-navbar {
+    background-color: #007bff; /* Color de fondo */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* CSS para el contenido principal */
+.container {
+    background-color: #f8f9fa; /* Fondo claro para el contenido */
+    padding: 2rem; /* Espaciado interno */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+h3 {
+    color: #343a40; /* Color del encabezado */
+}
+
+p {
+    color: #6c757d; /* Color del texto del párrafo */
+}
+
+
+
+
+/* CSS para la barra lateral */
+#sidebar {
+    background-color: #343a40; /* Color oscuro para la barra lateral */
+    color: #ffffff; /* Color de texto blanco */
+    min-height: 100vh; /* Asegura que la barra lateral ocupe toda la altura */
+}
+
+#sidebar .nav-link {
+    color: #ffffff; /* Color de texto blanco para los enlaces */
+    padding: 15px 20px; /* Espaciado interno */
+    border-radius: 0.5rem; /* Bordes redondeados */
+}
+
+#sidebar .nav-link.active {
+    background-color: #495057; /* Color de fondo para el enlace activo */
+    font-weight: bold; /* Negrita para el enlace activo */
+}
+
+#sidebar .nav-link:hover {
+    background-color: #495057; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo para ajustar el tamaño de la imagen */
+.welcome-image {
+    width: 100%; /* Ajusta el ancho al 100% del contenedor */
+    max-width: 300px; /* Establece un ancho máximo */
+    height: auto; /* Mantiene la proporción original */
+}
+
+

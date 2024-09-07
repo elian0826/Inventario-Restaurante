@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MesaController; // Asegúrate de importar el controlador MesaController
 
@@ -30,3 +31,6 @@ Route::middleware("auth")->group(function () {
     // Rutas para la gestión de mesas
     Route::resource('mesas', MesaController::class);
 });
+
+
+route::resource('products', ProductController::class);

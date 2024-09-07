@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">
+                        <a class="nav-link" href="{{ route('products.index') }}">
                             <span data-feather="shopping-bag"></span>
                             PRODUCTOS
                         </a>
@@ -69,7 +69,7 @@
                 <div class="container">
                     <h3>Bienvenido al Panel de Control de ASADERO Y COMIDAS RAPIDAS PERROFLACO</h3>
                     <p>¡Hola! Te damos la bienvenida al panel de control de ASADERO Y COMIDAS RAPIDAS PERROFLACO. Aquí puedes gestionar todos los aspectos de tu restaurante de manera eficiente y rápida.</p>
-                    
+
                     <div class="welcome-message">
                         <img src="{{ asset('images/HOME.jpg') }}" alt="Imagen de Bienvenida" class="welcome-image">
                         <p>Desde este panel, puedes:</p>
@@ -80,7 +80,7 @@
                             <li>Personalizar los menús y promociones.</li>
                         </ul>
                     </div>
-                    
+
                     <p>Selecciona una opción en el menú lateral para empezar a explorar y administrar tu restaurante.</p>
                 </div>
 

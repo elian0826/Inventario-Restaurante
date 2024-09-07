@@ -4,6 +4,7 @@ use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 
+
 Route::middleware("guest")->group(function () {
     Route::get('/',[AuthController::class, 'index'])->name('login');
     Route::get('/registro',[AuthController::class, 'registro'])->name('registro');
@@ -16,4 +17,6 @@ Route::middleware("auth")->group(function () {
     Route::get('/logout',[AuthController::class,'logout'])->name('logout');
 });
 
+//CRUD DE PRODUCTO
 route::resource('products', ProductController::class);
+Route::get('/home',[AuthController::class,'home'])->name('home');

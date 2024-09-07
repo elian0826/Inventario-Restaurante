@@ -1,71 +1,177 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Proyecto de Gestión de Productos
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Descripción
 
-## About Laravel
+Este proyecto es una aplicación de gestión de productos desarrollada con Laravel. Permite a los usuarios agregar, editar y eliminar productos, con una interfaz moderna y estilizada. 
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Estructura del Proyecto
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- **Backend**: Laravel para la gestión del servidor y la lógica de negocio.
+- **Frontend**: HTML, CSS y JavaScript para la interfaz de usuario.
+- **Base de Datos**: MySQL para el almacenamiento de datos.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Instalación
 
-## Learning Laravel
+1. Clona el repositorio:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+    ```bash
+    git clone https://github.com/tu_usuario/tu_repositorio.git
+    ```
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+2. Navega al directorio del proyecto:
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+    ```bash
+    cd tu_repositorio
+    ```
 
-## Laravel Sponsors
+3. Instala las dependencias:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+    ```bash
+    composer install
+    ```
 
-### Premium Partners
+4. Configura el archivo de entorno:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+    ```bash
+    cp .env.example .env
+    php artisan key:generate
+    ```
 
-## Contributing
+5. Configura la base de datos en el archivo `.env` con tus credenciales de MySQL.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+6. Ejecuta las migraciones para crear las tablas en la base de datos:
 
-## Code of Conduct
+    ```bash
+    php artisan migrate
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+7. (Opcional) Ejecuta el seeder para agregar datos de prueba:
 
-## Security Vulnerabilities
+    ```bash
+    php artisan db:seed
+    ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+8. Inicia el servidor de desarrollo:
 
-## License
+    ```bash
+    php artisan serve
+    ```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# Inventario-Restaurante
-Sistema de Gestión para Restaurante Software para restaurantes que gestiona inventario, pedidos, mesas y facturas. Incluye control de stock, manejo de pedidos con asignación de mesas y generación de facturas. Desarrollado con PHP/Laravel, HTML, CSS y JavaScript.
->>>>>>> 6fa57e8021aef64a96b64858c29e166b9bc30888
+## Rutas
+
+- **Lista de Productos**: `/products`
+- **Agregar Producto**: `/products/create`
+- **Editar Producto**: `/products/{id}/edit`
+
+## Funcionalidades
+
+- **Agregar Producto**: Permite agregar un nuevo producto a la base de datos con nombre y precio.
+- **Editar Producto**: Permite editar los detalles de un producto existente.
+- **Eliminar Producto**: Permite eliminar un producto de la base de datos.
+- **Validaciones**: Asegura que los campos de nombre y precio sean requeridos y correctos.
+
+## Estilos
+
+- **Botones**:
+  - **Agregar**: Un botón estilizado con un gradiente de colores.
+  - **Actualizar**: Un botón estilizado similar al de agregar.
+  - **Regresar**: Un botón secundario alineado a la derecha.
+
+  ```css
+  /* Estilo de botón personalizado */
+  .btn {
+    --border-color: linear-gradient(-45deg, #ffae00, #7e03aa, #00fffb);
+    --border-width: 0.125em;
+    --curve-size: 0.5em;
+    --blur: 30px;
+    --bg: #080312;
+    --color: #afffff;
+    color: var(--color);
+    cursor: pointer;
+    position: relative;
+    isolation: isolate;
+    display: inline-grid;
+    place-content: center;
+    padding: 0.5em 1.5em;
+    font-size: 17px;
+    border: 0;
+    text-transform: uppercase;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.6);
+    clip-path: polygon(
+      /* Top-left */ 0% var(--curve-size),
+      var(--curve-size) 0,
+      /* top-right */ 100% 0,
+      100% calc(100% - var(--curve-size)),
+      /* bottom-right 1 */ calc(100% - var(--curve-size)) 100%,
+      /* bottom-right 2 */ 0 100%
+    );
+    transition: color 250ms;
+  }
+
+  .btn::after,
+  .btn::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+  }
+
+  .btn::before {
+    background: var(--border-color);
+    background-size: 300% 300%;
+    animation: move-bg7234 5s ease infinite;
+    z-index: -2;
+  }
+
+  @keyframes move-bg7234 {
+    0% {
+      background-position: 31% 0%;
+    }
+
+    50% {
+      background-position: 70% 100%;
+    }
+
+    100% {
+      background-position: 31% 0%;
+    }
+  }
+
+  .btn::after {
+    background: var(--bg);
+    z-index: -1;
+    clip-path: polygon(
+      /* Top-left */ var(--border-width)
+        calc(var(--curve-size) + var(--border-width) * 0.5),
+      calc(var(--curve-size) + var(--border-width) * 0.5) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */ var(--border-width) calc(100% - var(--border-width))
+    );
+    transition: clip-path 500ms;
+  }
+
+  .btn:where(:hover, :focus)::after {
+    clip-path: polygon(
+      /* Top-left */ calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      calc(100% - var(--border-width)) var(--border-width),
+      /* top-right */ calc(100% - var(--border-width)) var(--border-width),
+      calc(100% - var(--border-width))
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5)),
+      /* bottom-right 1 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width)),
+      /* bottom-right 2 */
+        calc(100% - calc(var(--curve-size) + var(--border-width) * 0.5))
+        calc(100% - var(--border-width))
+    );
+    transition: 200ms;
+  }
+
+  .btn:where(:hover, :focus) {
+    color: #fff;
+  }

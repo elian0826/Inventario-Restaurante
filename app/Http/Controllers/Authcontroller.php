@@ -27,17 +27,16 @@ class Authcontroller extends Controller
     }
 
     public function logear(Request $request) {
-        $creadenciales = [
-            'email' => $request->email,
-            'password' => $request->password
-        ];
 
-        if (Auth::attempt($creadenciales)) {
-            return to_route('home');
-        } else {
-            return to_route('login');
-        }
+    $credentials = $request->only('email', 'password');
+
+    if (Auth::attempt($credentials)) {
+        return redirect()->intended('/home');
     }
+
+    return redirect()->back()->withErrors(['email' => 'Credenciales incorrectas.']);
+    }
+
 
     public function logout() {
         Session::flush();

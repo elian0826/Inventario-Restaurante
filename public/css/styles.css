@@ -1,0 +1,78 @@
+/* Estilos generales del contenedor */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+}
+
+/* Estilo para los encabezados */
+h3 {
+    font-size: 2.5rem;
+    color: #222; /* Color gris oscuro */
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase; /* Letras en mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+/* Estilo para los párrafos */
+p {
+    font-size: 1.125rem;
+    color: #555; /* Color gris medio */
+    line-height: 1.8;
+    margin-bottom: 20px;
+    text-align: justify; /* Justificar texto */
+}
+
+/* Estilo para listas no ordenadas */
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    background: #ADBC9F; /* Fondo blanco roto */
+    border-left: 5px solid #FFB000; /* Barra de color azul a la izquierda */
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 15px;
+    font-size: 1rem;
+    color: #444; /* Gris oscuro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+/* Estilo para los enlaces */
+a {
+    color: #007bff; /* Color azul */
+    text-decoration: none;
+    font-weight: 500; /* Peso de fuente medio */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #0056b3; /* Azul más oscuro en hover */
+    text-decoration: underline;
+}
+
+/* Estilo para los botones */
+.custom-button {
+    background-color: #007bff; /* Color de fondo azul */
+    color: #fff; /* Texto blanco */
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-block;
+    font-size: 1rem;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.custom-button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.05); /* Escala al pasar el ratón */
+}

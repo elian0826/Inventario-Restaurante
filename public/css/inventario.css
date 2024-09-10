@@ -1,0 +1,55 @@
+/* inventario.css */
+
+/* Ajusta la barra superior azul */
+.bg-primary {
+    background-color: #007bff; /* Azul */
+    padding: 10px; /* Ajusta la altura de la barra */
+    margin-bottom: 20px; /* Espacio debajo de la barra para separar del contenido siguiente */
+}
+
+/* Estilo del texto en la barra */
+.text-white {
+    color: #ffffff;
+}
+
+/* Estilo para el botón de la barra superior */
+.btn-light {
+    background-color: #f8f9fa; /* Color de fondo claro para el botón */
+    color: #000000; /* Texto del botón en negro */
+    border: none; /* Opcional: quita el borde del botón */
+}
+
+.btn-light:hover {
+    background-color: #e2e6ea; /* Color de fondo cuando se pasa el ratón por encima */
+    color: #000000; /* Color del texto cuando se pasa el ratón por encima */
+}
+
+/* Controla el espaciado del contenedor */
+.container-fluid {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Ajusta el espacio superior del formulario */
+form {
+    margin-top: 20px; /* Espacio superior del formulario */
+}
+
+/* Cuadro de texto para campos de fecha */
+.form-group {
+    border: 1px solid #dee2e6; /* Borde del cuadro de texto */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 15px; /* Espaciado interno */
+    background-color: #ffffff; /* Color de fondo blanco */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Ajusta el espacio entre el formulario y el botón */
+.btn-primary {
+    margin-top: 10px;
+}
+
+/* Ajusta el tamaño del botón en la barra superior */
+.btn-secondary {
+    margin-top: 10px; /* Espacio superior del botón */
+}

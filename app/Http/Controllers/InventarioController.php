@@ -40,7 +40,7 @@ class InventarioController extends Controller
             'fecha' => 'required|date',
         ]);
 
-        Inventario::create($request->only(['producto_id', 'tipo_movimiento', 'cantidad', 'fecha', 'comentario'])); // Especifica las columnas que deseas guardar
+        Inventario::create($request->only(['producto_id',  'cantidad', 'fecha', 'comentario'])); // Especifica las columnas que deseas guardar
 
         return redirect()->route('inventario.index')->with('success', 'Movimiento registrado correctamente.');
     }

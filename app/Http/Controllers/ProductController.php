@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     $products = Product::all()->map(function ($product) {
         // Formato de precio con tres decimales, usando punto como separador decimal
-        $product->formatted_price = number_format($product->price, 3, '.');
+        $product->formatted_price = number_format($product->price / 100, 2, '.', ',');
         return $product;
     });
 
@@ -36,9 +36,17 @@ public function store(Request $request)
         'price' => 'required|numeric',
     ]);
 
-    Product::create($request->all());
-    return redirect()->route('products.index')->with('success', 'Producto agregado exitosamente.');
+    // Redondear el precio a la centena más cercana
+    $priceInCents = round($request->input('price') * 100);
+
+    Product::create([
+        'name' => $request->input('name'),
+        'price' => $priceInCents
+    ]);
+
+    return redirect()->route('products.index')->with('success', 'Producto creado con éxito.');
 }
+
 
     /**
      * Display the specified resource.
@@ -65,9 +73,18 @@ public function update(Request $request, $id)
     ]);
 
     $product = Product::findOrFail($id);
-    $product->update($request->all());
+
+    // Redondear el precio a la centena más cercana
+    $priceInCents = round($request->input('price') * 100);
+
+    $product->update([
+        'name' => $request->input('name'),
+        'price' => $priceInCents
+    ]);
+
     return redirect()->route('products.index')->with('success', 'Producto actualizado exitosamente.');
 }
+
 
 
     /**

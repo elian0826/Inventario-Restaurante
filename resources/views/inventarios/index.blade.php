@@ -4,8 +4,13 @@
 
 @section('contenido')
 <div class="container-fluid">
-    <h1>Inventario</h1>
+    <!-- Barra superior azul con el botón regresar -->
+    <div class="bg-primary text-white d-flex justify-content-between align-items-center">
+        <h1 class="mb-0 ms-3">Inventario</h1>
+        <a href="{{ route('home') }}" class="btn btn-light">Regresar al Home</a>
+    </div>
 
+    <!-- Formulario de filtrado -->
     <form action="{{ route('inventario.index') }}" method="GET" class="mb-4">
         <div class="row">
             <div class="col-md-4">
@@ -56,6 +61,3 @@
     @endif
 </div>
 @endsection
-
-
-

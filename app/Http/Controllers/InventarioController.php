@@ -2,20 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Inventario;
+use App\Models\Inventario; // Asegúrate de que esta línea esté correcta
 use App\Models\Venta;
-use App\Exports\VentasExport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use Barryvdh\DomPDF\Facade as PDF;
-
+use App\Exports\InventariosExport;
 
 class InventarioController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $inventarios = Inventario::with('producto')->get();
-        return view('inventario.index', compact('inventarios'));
+        $query = Inventario::query();
+
+        if ($request->has('fecha_inicio') && $request->has('fecha_fin')) {
+            $fechaInicio = $request->input('fecha_inicio');
+            $fechaFin = $request->input('fecha_fin');
+            $query->whereBetween('fecha', [$fechaInicio, $fechaFin]);
+        }
+
+        $inventarios = $query->with('producto')->get(); 
+
+        return view('inventarios.index', compact('inventarios'));
     }
 
     public function create()
@@ -33,21 +40,14 @@ class InventarioController extends Controller
             'fecha' => 'required|date',
         ]);
 
-        Inventario::create($request->all());
+        Inventario::create($request->only(['producto_id', 'tipo_movimiento', 'cantidad', 'fecha', 'comentario'])); // Especifica las columnas que deseas guardar
 
         return redirect()->route('inventario.index')->with('success', 'Movimiento registrado correctamente.');
     }
 
     public function exportarExcel(Request $request)
     {
-        $ventas = Venta::whereBetween('fecha', [$request->fecha_inicio, $request->fecha_fin])->get();
-        return Excel::download(new VentasExport($ventas), 'ventas.xlsx');
-    }
-
-    public function exportarPDF(Request $request)
-    {
-        $ventas = Venta::whereBetween('fecha', [$request->fecha_inicio, $request->fecha_fin])->get();
-        $pdf = PDF::loadView('inventario.pdf', compact('ventas'));
-        return $pdf->download('ventas.pdf');
+        return Excel::download(new InventariosExport($request->all()), 'inventarios.xlsx');
     }
 }
+

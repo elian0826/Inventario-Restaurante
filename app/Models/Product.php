@@ -12,4 +12,10 @@ class Product extends Model
     protected $fillable = [
         'name', 'price' // Agrega aquí los campos que deseas permitir
     ];
+
+    // Relación inversa con Inventario
+    public function inventarios()
+    {
+        return $this->hasMany(Inventario::class, 'producto_id');
+    }
 }

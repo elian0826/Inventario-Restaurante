@@ -7,20 +7,19 @@ use Illuminate\Support\Facades\Schema;
 class CreateVentasTable extends Migration
 {
     public function up()
-    {
-        Schema::create('ventas', function (Blueprint $table) {
-            $table->id();
-            $table->unsignedBigInteger('producto_id');
-            $table->integer('cantidad');
-            $table->date('fecha');
-            $table->decimal('total', 8, 2);
-            $table->text('comentario')->nullable();
-            $table->timestamps();
+{
+    Schema::create('ventas', function (Blueprint $table) {
+        $table->id();
+        $table->unsignedBigInteger('producto_id'); // Debe ser unsignedBigInteger
+        $table->integer('cantidad');
+        $table->decimal('precio', 8, 2);
+        $table->date('fecha');
+        $table->timestamps();
 
-            // Relación con productos
-            $table->foreign('producto_id')->references('id')->on('productos')->onDelete('cascade');
-        });
-    }
+        // Relación con productos
+        $table->foreign('producto_id')->references('id')->on('products')->onDelete('cascade');
+    });
+}
 
     public function down()
     {

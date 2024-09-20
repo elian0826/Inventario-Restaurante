@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\MesaController; // Asegúrate de importar el controlador MesaController
+use App\Http\Controllers\InventarioController;
 
 // Rutas para usuarios no autenticados
 Route::middleware("guest")->group(function () {
@@ -34,3 +35,9 @@ Route::middleware("auth")->group(function () {
 
 
 route::resource('products', ProductController::class);
+
+route::get('/inventario/exportar', [InventarioController::class, 'exportarExcel'])->name('inventario.exportar');
+
+
+Route::get('/inventario', [InventarioController::class, 'index'])->name('inventario.index');
+Route::get('/inventario/exportar', [InventarioController::class, 'exportarExcel'])->name('inventario.exportar');

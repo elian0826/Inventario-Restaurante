@@ -6,6 +6,9 @@ use App\Models\Inventario;
 use Maatwebsite\Excel\Concerns\FromQuery;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 
+
+
+
 class InventariosExport implements FromQuery, WithHeadings
 {
     protected $filters;

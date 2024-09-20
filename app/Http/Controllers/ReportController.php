@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Barryvdh\DomPDF\Facade\Pdf;
 use App\Models\Inventario; // Asegúrate de que tienes un modelo para Inventario
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\InventariosExport;
+use Illuminate\Http\Request;
+
 
 class ReportController extends Controller
 {
@@ -19,10 +23,13 @@ class ReportController extends Controller
         return $pdf->download('inventario.pdf');
     }
 
-    public function exportExcel()
+    public function exportarExcel(Request $request)
     {
-        return Excel::download(new InventarioExport, 'inventario.xlsx');
+        $filters = $request->only(['fecha_inicio', 'fecha_fin']);  // Solo los filtros relevantes
+        return Excel::download(new InventariosExport($filters), 'inventarios.xlsx');
     }
+    
+
 
 
 }

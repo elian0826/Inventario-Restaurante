@@ -26,7 +26,7 @@
                 @foreach($products as $product)
                 <tr>
                     <td>{{ $product->name }}</td>
-                    <td>{{ number_format($product->price / 100, 0, '.', '.') }}</td> <!-- Mostrar el precio formateado -->
+                    <td>{{ number_format($product->price / 100, 3, '.', '.') }}</td> <!-- Mostrar el precio formateado -->
                     <td>
                         <a href="{{ route('products.edit', $product->id) }}" class="btn btn-warning btn-sm">Editar</a>
                         <form action="{{ route('products.destroy', $product->id) }}" method="POST" class="d-inline" data-confirm="¿Estás seguro de que deseas eliminar este producto?">

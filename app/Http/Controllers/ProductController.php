@@ -13,7 +13,7 @@ class ProductController extends Controller
 {
     $products = Product::all()->map(function ($product) {
         // Formato de precio con tres decimales, usando punto como separador decimal
-        $product->formatted_price = number_format($product->price / 100, 2, '.', ',');
+        $product->formatted_price = number_format($product->price / 100, 3, '.', ',');
         return $product;
     });
 
